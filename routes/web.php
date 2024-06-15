@@ -15,8 +15,8 @@ use App\Http\Controllers\PostController;  //外部にあるPostControllerクラ�
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [PostController::class, 'index']);
-Route::get('/posts/create', [PostController::class , 'create']);
-//'/'はアプリケーション開始時に送信されるリクエスト。PostController.phpで定義した'index'メソッドを実行する。
-Route::get('/posts/{post}', [PostController::class , 'show']);
+Route::get('/', [PostController::class, 'index']);//'/'はアプリケーション開始時に送信されるリクエスト。PostController.phpで定義した'index'メソッドを実行する。
+Route::get('/posts/create', [PostController::class, 'create']);
+Route::post('/posts', [PostController::class, 'store']);
+Route::get('/posts/{post}', [PostController::class, 'show']);
 //
