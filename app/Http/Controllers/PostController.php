@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-//use宣言は外部にあるクラスをPostController内にインポートできる。
-//この場合、App\Models内のPostクラスをインポートしている。
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 /**
  * Post一覧を表示する
@@ -36,7 +34,7 @@ class PostController extends Controller
          return view('posts.create');
      }
      
-     public function store(Request $request, Post $post)
+     public function store(PostRequest $request, Post $post)
      {
          //postをキーに持つリクエストパラメータを取得。$requestのキーはHTMLもFormタグ内で定義した各入力項目のname属性と一致する
          //$input - ['title' => 'タイトル', 'body' => '本文']という配列形式となる
