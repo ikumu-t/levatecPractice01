@@ -1,13 +1,8 @@
-<!DOCTYPE HTML>
-<html lang="ja">
-    <head>
-        <meta charset="utf-8">
+<x-app-layout>
+    <x-slot name="header">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Posts</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-    <body>
+    </x-slot>
         <h1 class="title">
             {{ $post->title }}
         </h1>
@@ -18,9 +13,9 @@
                 <p>{{ $post->body }}</p>    
             </div>
         </div>
+        <small>{{ $post->user->name }}</small>
         <div class="edit"><a href="/posts/{{ $post->id }}/edit">edit</a></div>
         <div class="footer">
             <a href="/">戻る</a>
         </div>
-    </body>
-</html>
+</x-app-layout>
