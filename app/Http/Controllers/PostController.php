@@ -40,6 +40,7 @@ class PostController extends Controller
          //postをキーに持つリクエストパラメータを取得。$requestのキーはHTMLもFormタグ内で定義した各入力項目のname属性と一致する
          //$input - ['title' => 'タイトル', 'body' => '本文']という配列形式となる
          $input = $request['post'];
+         $input += ['user_id' => $request->user()->id];
          //保存処理
          //Postインスタンスのプロパティを受け取ったキーごとに上書きする。
          //$post->titleはタイトル、$post->bodyは本文
@@ -55,6 +56,7 @@ class PostController extends Controller
      public function update(PostRequest $request, Post $post)
      {
          $input_post = $request['post'];
+         $input_post += ['user_id' => $request->user()->id];
          $post->fill($input_post)->save();
          
          return redirect('/posts/' . $post->id);

@@ -1,14 +1,7 @@
-<!DOCTYPE HTML>
-<html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Posts</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-    <body>
+<x-app-layout>
+    <x-slot name="header">
         <h1 class="title">編集画面</h1>
+    </x-slot>
         <div class="content">
             <form action="/posts/{{ $post->id }}" method="POST">
                 @csrf
@@ -24,5 +17,4 @@
                 <input type="submit" value="保存">
             </form>
         </div>
-    </body>
-</html>
+</x-app-layout>
